@@ -8,10 +8,10 @@ main.cpp
 ## Questions to answer in readme
 
 ### 1) Why is a linked list efficient for stack implementation?
-Stacks are LIFO, which means we will typically be impacting the first element with stack operations. Considering this it is reasonable to conclude that a linked list is efficient as we already keep track of the head node, or top node in this case, allowing us to directly affect it and perform O(1) operations.
+Stacks are LIFO, which means we will typically be impacting the first element with stack operations. A linked list is efficient in this situaton because we keep track of the top/head node, allowing insertion an deletion with our push and pop operations without needing to shift elements. And since linked list do no require contiguous memory like arrays do we have more flexibility with our memory while maintaining a constant time complexity.
 ### 2) What is the time complexity of push and pop operations?
-The time complexity of both should be O(1) as we are accessing the data of the top node and either deleting the data, or reassigning the data, which would be an O(1) operation.
+Both push and pop have a time complexity of O(1). Both only involve updating pointers and therefore do not traverse the structure like an array would.
 ### 3) What happens if memory is not deallocated after pop?
-If memory is not deallocated after pop we have garbage on the stack, and this means that we are essentially wasting unused memory, and in this case the more operations we perform the more memory leakage we have occuring.
+If memory is not deallocated after pop we create a memory leak. This means our program has created and lost access to allocated memory no longer in use. An array allocates contiguous memory and therfore has a "section" of memory allocated to itself, linked list do not follow this rule and will run into memory leaks. Over time, repeating this process can lead to a significant amount of memory leakage that causes performance to degrade and potentially crash.
 ### 4)Compare a stack implemented with an array versus a linked list.
-Since an array is not dynamic we run into problems using it, a linked list allows us to not have the need for contiguous memory. In the case of the stack, the array would have to continually allocate and deallocate memory as the stack changes, whereas with our linked list we do not have to worry about this. 
+An array uses contiguous memory and typically will have a fixed/declared size, this can lead to overflow if we exceed that size. On the other hand, resizing our array, dynamic array, can be a costly operation if we consider reallocation and copying of our pre-resized array. A linked list stack always dynamically allocates memory for each new element/node, allowing growth and shrinkage without contiguous memory. However, linked list may require extra memory usage for pointer storage, and may have worse performance in that regard.
