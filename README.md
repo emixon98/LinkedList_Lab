@@ -8,7 +8,7 @@ main.cpp
 ## Questions to answer in readme
 
 ### 1) Why is a linked list efficient for stack implementation?
-Stacks are FIFO, which means we will typically be impacting the first element with stack operations. Considering this it is reasonable to conclude that a linked list is efficient as we already keep track of the head node, or top node in this case, allowing us to directly affect it and perform O(1) operations.
+Stacks are LIFO, which means we will typically be impacting the first element with stack operations. Considering this it is reasonable to conclude that a linked list is efficient as we already keep track of the head node, or top node in this case, allowing us to directly affect it and perform O(1) operations.
 ### 2) What is the time complexity of push and pop operations?
 The time complexity of both should be O(1) as we are accessing the data of the top node and either deleting the data, or reassigning the data, which would be an O(1) operation.
 ### 3) What happens if memory is not deallocated after pop?

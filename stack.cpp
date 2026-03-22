@@ -21,22 +21,21 @@ void Stack::push(int val){
 }
 //must handle stack underflow
 void Stack::pop(){
-    try{
-        if(top == nullptr) {//empty check
+    if(top == nullptr) {//empty check
             throw std::underflow_error("Stack Underflow");
      } 
 
     Node* tempNext = top->next;
     delete top; 
     top = tempNext;
-    }
-    catch(const std::underflow_error& e){
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
 }
+
 //could cause undeflow as well include a statement here to handle this case since our program as
 //a whole needs to handle stack underflow
 int Stack::peek(){
+    if(top == nullptr) {//empty check
+        throw std::underflow_error("Stack Underflow");
+    } 
     return top->data;
 }
 
