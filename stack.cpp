@@ -7,27 +7,50 @@
 //We need to handle stack underflow, use detection
 //logic file
 #include "stack.h"
+#include <stdexcept>
+#include <iostream>
+
 Stack::Stack()
 {
     top = nullptr;
 }
 
 void Stack::push(int val){
-
+    Node* newNode = new Node{val, top};
+    top = newNode;
 }
-
+//must handle stack underflow
 void Stack::pop(){
+    try{
+        if(top == nullptr) {//empty check
+            throw std::underflow_error("Stack Underflow");
+     } 
 
+    Node* tempNext = top->next;
+    delete top; 
+    top = tempNext;
+    }
+    catch(const std::underflow_error& e){
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 }
 
 int Stack::peek(){
-
+    return top->data;
 }
 
 bool Stack::isEmpty(){
-
+    if (top == nullptr) return true;
+    else 
+        return false;
 }
 
 void Stack::display(){
-    
+    Node* temp = top;
+    cout << endl << "Stack elements:" << endl;
+    while(temp != nullptr){
+        cout << temp->data << endl;
+        temp = temp->next;
+    }
+    cout << endl;
 }
