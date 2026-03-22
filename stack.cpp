@@ -34,7 +34,8 @@ void Stack::pop(){
         std::cerr << "Error: " << e.what() << std::endl;
     }
 }
-
+//could cause undeflow as well include a statement here to handle this case since our program as
+//a whole needs to handle stack underflow
 int Stack::peek(){
     return top->data;
 }
