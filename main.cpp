@@ -3,9 +3,14 @@
 #include "iostream"
 using namespace std;
 
+//add more operations to show all stack functions made
 int main()
 {
-    Stack s;
+    Stack s; //currently empty
+
+    s.isEmpty();   //verify isEmpty works 
+    s.peek(); //Check if stack underflow works for peek
+    s.pop(); //Check if stack underflow works for pop
 
     s.push(10);
     s.push(20);

@@ -1,14 +1,14 @@
-//Stack Operations to implement
-//push() insert element of top
+//Stack Operations
+//push() insert element on top
 //pop() remove element on top
 //peek() return top element
 //isEmpty() check if stack is empty
 //display() print stack
-//We need to handle stack underflow, use detection
-//logic file
+
 #include "stack.h"
 #include <stdexcept>
 #include <iostream>
+using namespace std;
 
 Stack::Stack()
 {
@@ -16,6 +16,7 @@ Stack::Stack()
 }
 
 void Stack::push(int val){
+    //initialize a new node with a pointer to the current top node, and then make the new top
     Node* newNode = new Node{val, top};
     top = newNode;
 }
@@ -24,7 +25,7 @@ void Stack::pop(){
     if(top == nullptr) {//empty check
             throw std::underflow_error("Stack Underflow");
      } 
-
+    //I want to store the next val of current top since i'll be deleting the current top and dont want to lose it 
     Node* tempNext = top->next;
     delete top; 
     top = tempNext;
@@ -40,7 +41,7 @@ int Stack::peek(){
 }
 
 bool Stack::isEmpty(){
-    if (top == nullptr) return true;
+    if (top == nullptr) return true; //empty case
     else 
         return false;
 }
@@ -48,6 +49,7 @@ bool Stack::isEmpty(){
 void Stack::display(){
     Node* temp = top;
     cout << endl << "Stack elements:" << endl;
+    //basic iteration until reached end of stack/nullptr
     while(temp != nullptr){
         cout << temp->data << endl;
         temp = temp->next;
