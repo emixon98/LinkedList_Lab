@@ -22,7 +22,7 @@ void Stack::push(int val){
 }
 //must handle stack underflow
 void Stack::pop(){
-    if(isEmpty() == true) {//empty check
+    if(isEmpty()) {//empty check
             throw std::underflow_error("Stack Underflow");
      } 
     //I want to store the next val of current top since i'll be deleting the current top and dont want to lose it 
@@ -33,16 +33,14 @@ void Stack::pop(){
 
 //could cause undeflow as well
 int Stack::peek(){
-    if(isEmpty() == true) {//empty check
+    if(isEmpty()) {//empty check
         throw std::underflow_error("Stack Underflow");
     } 
     return top->data;
 }
 
 bool Stack::isEmpty(){
-    if (top == nullptr) return true; //empty case
-    else 
-        return false;
+    return top == nullptr; //returns true if statement is true
 }
 
 void Stack::display(){
