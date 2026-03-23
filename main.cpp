@@ -24,6 +24,7 @@ int main()
         s.display();
 
         //proof of underflow handling
+        // since pop and peek share same case, if one works both do
         try{
             while(!s.isEmpty()){
                 s.pop();

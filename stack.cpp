@@ -20,18 +20,18 @@ void Stack::push(int val){
     Node* newNode = new Node{val, top};
     top = newNode;
 }
-//must handle stack underflow
+
 void Stack::pop(){
-    if(isEmpty()) {//empty check
+    if(isEmpty()) {//empty/underflow check
             throw std::underflow_error("Stack Underflow");
      } 
-    //I want to store the next val of current top since i'll be deleting the current top and dont want to lose it 
+    //I want to store pointer to next node before deleting top
     Node* tempNext = top->next;
     delete top; 
     top = tempNext;
 }
 
-//could cause undeflow as well
+//could cause underflow as well
 int Stack::peek(){
     if(isEmpty()) {//empty check
         throw std::underflow_error("Stack Underflow");
