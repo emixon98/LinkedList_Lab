@@ -2,7 +2,6 @@
 #include "iostream"
 #include <stdexcept>
 
-//add more operations to show all stack functions made
 int main()
 {
     Stack s; //currently empty
