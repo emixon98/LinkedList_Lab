@@ -8,9 +8,8 @@ int main()
 {
     Stack s; //currently empty
 
-    s.isEmpty();   //verify isEmpty works 
-    s.peek(); //Check if stack underflow works for peek
-    s.pop(); //Check if stack underflow works for pop
+    //s.peek(); //Check if stack underflow works for peek, works
+    //s.pop(); //Check if stack underflow works for pop, works
 
     s.push(10);
     s.push(20);
